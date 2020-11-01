@@ -1,0 +1,44 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Docs", "Docs", "{3901C50E-620D-4B5E-AC75-1A5B0FECE705}"
+	ProjectSection(SolutionItems) = preProject
+		Hotel Reservations.pdf = Hotel Reservations.pdf
+		README.md = README.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Src", "Src", "{7A01C8FE-C014-44E9-AA00-9B4D92991F38}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{B5695675-830D-4290-8DEF-52A18D521903}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HotelReservations.Models", "HotelReservations.Models\HotelReservations.Models.csproj", "{CFBC844B-694C-45A5-AD42-A65F2C7AE2E8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HotelReservations.Data", "HotelReservations.DataAccess\HotelReservations.Data.csproj", "{86DF7231-3F1E-4588-B810-38C10919CC88}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HotelReservations.API", "HotelReservations.API\HotelReservations.API.csproj", "{78492BBC-BB7D-41C8-8993-C8019A453EF5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CFBC844B-694C-45A5-AD42-A65F2C7AE2E8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CFBC844B-694C-45A5-AD42-A65F2C7AE2E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CFBC844B-694C-45A5-AD42-A65F2C7AE2E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CFBC844B-694C-45A5-AD42-A65F2C7AE2E8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{86DF7231-3F1E-4588-B810-38C10919CC88}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{86DF7231-3F1E-4588-B810-38C10919CC88}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{86DF7231-3F1E-4588-B810-38C10919CC88}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{86DF7231-3F1E-4588-B810-38C10919CC88}.Release|Any CPU.Build.0 = Release|Any CPU
+		{78492BBC-BB7D-41C8-8993-C8019A453EF5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{78492BBC-BB7D-41C8-8993-C8019A453EF5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{78492BBC-BB7D-41C8-8993-C8019A453EF5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{78492BBC-BB7D-41C8-8993-C8019A453EF5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{CFBC844B-694C-45A5-AD42-A65F2C7AE2E8} = {7A01C8FE-C014-44E9-AA00-9B4D92991F38}
+		{86DF7231-3F1E-4588-B810-38C10919CC88} = {7A01C8FE-C014-44E9-AA00-9B4D92991F38}
+		{78492BBC-BB7D-41C8-8993-C8019A453EF5} = {7A01C8FE-C014-44E9-AA00-9B4D92991F38}
+	EndGlobalSection
+EndGlobal
