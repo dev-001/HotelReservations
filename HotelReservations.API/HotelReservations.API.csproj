@@ -9,7 +9,7 @@
     <Folder Include="Controllers\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\HotelReservations.DataAccess\HotelReservations.Data.csproj">
+    <ProjectReference Include="..\HotelReservations.Data\HotelReservations.Data.csproj">
       <GlobalPropertiesToRemove></GlobalPropertiesToRemove>
     </ProjectReference>
   </ItemGroup>
