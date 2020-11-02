@@ -3,6 +3,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Collections.Generic;
 using HotelReservations.Models;
+using System.Runtime.CompilerServices;
 
 namespace HotelReservations.Data
 {
@@ -40,13 +41,35 @@ namespace HotelReservations.Data
 
         private IRoom GetBestRoomToBook(ICollection<IRoom> rooms, IReservation reservation)
         {
-            if(rooms.Count == 1 || rooms.Sum(x => x.Reservations.Count) == 0)
+            if (rooms.Count == 1 || rooms.Sum(x => x.Reservations.Count) == 0)
                 return rooms.FirstOrDefault();
-            var orderedList = rooms
-                .Where(x => x.Reservations.Min(y => y.EndDay < reservation.EndDay))
-                .Select(x => new { room = x, endDate = Math.Abs(x.Reservations.Min(y => y.EndDay) - reservation.EndDay)})
-                .OrderBy(x => x.endDate);
-            return orderedList.FirstOrDefault().room;
+            IRoom roomCandidate = null;
+            foreach(var room in rooms)
+            {
+                // if there is a room that has ending reservation day before new one we will take that room to maximize space 
+                foreach (var r in room.Reservations)
+                {
+                    int daysLeft = r.EndDay - reservation.StartDay;
+                    if(daysLeft == -1)
+                    {
+                        roomCandidate = room;
+                        break;
+                    }
+                }
+
+                if(roomCandidate == room)
+                {
+                    // means we found perfect candidate
+                    break;
+                }
+
+                if (roomCandidate == null)
+                {
+                    roomCandidate = room;
+                    continue;
+                }
+            }
+            return roomCandidate;
         }
 
         public async Task<IRoom> GetRoomByNumber(int roomNum)

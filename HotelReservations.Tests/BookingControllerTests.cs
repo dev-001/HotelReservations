@@ -15,9 +15,9 @@ namespace MotelBooking.Tests
         public async Task Book_Room_Outside_Of_Planning_Period_Size_1()
         {
             IHotelRepository repo = new HotelRepository(1);
-            IBookingDataAdapter da = new BookingDataAdapter(repo, new BookingProcessor(repo));
+            IBookingDataAdapter data = new BookingDataAdapter(repo, new BookingProcessor(repo));
 
-            BookingController controller = new BookingController(da);
+            BookingController controller = new BookingController(data);
             var response = await controller.BookFirstAvailableRoom(-4, 2);
 
             Assert.AreEqual(((ObjectResult)response).StatusCode, 400);
@@ -27,9 +27,9 @@ namespace MotelBooking.Tests
         public async Task Book_Room_Outside_Of_Planning_Period_Year_Size_1()
         {
             IHotelRepository repo = new HotelRepository(1);
-            IBookingDataAdapter da = new BookingDataAdapter(repo, new BookingProcessor(repo));
+            IBookingDataAdapter data = new BookingDataAdapter(repo, new BookingProcessor(repo));
 
-            BookingController controller = new BookingController(da);
+            BookingController controller = new BookingController(data);
             var response = await controller.BookFirstAvailableRoom(200, 400);
 
             Assert.AreEqual(((ObjectResult)response).StatusCode, 400);
@@ -39,9 +39,9 @@ namespace MotelBooking.Tests
         public async Task Book_Room_Request_Are_Accepted_Size_3()
         {
             IHotelRepository repo = new HotelRepository(3);
-            IBookingDataAdapter da = new BookingDataAdapter(repo, new BookingProcessor(repo));
+            IBookingDataAdapter data = new BookingDataAdapter(repo, new BookingProcessor(repo));
 
-            BookingController controller = new BookingController(da);
+            BookingController controller = new BookingController(data);
             List<Tuple<int, int>> list = new List<Tuple<int, int>>();
             list.Add(new Tuple<int, int>(0, 5));
             list.Add(new Tuple<int, int>(7, 13));
@@ -61,9 +61,9 @@ namespace MotelBooking.Tests
         public async Task Book_Room_Request_Are_Declined_Size_3()
         {
             IHotelRepository repo = new HotelRepository(3);
-            IBookingDataAdapter da = new BookingDataAdapter(repo, new BookingProcessor(repo));
+            IBookingDataAdapter data = new BookingDataAdapter(repo, new BookingProcessor(repo));
 
-            BookingController controller = new BookingController(da);
+            BookingController controller = new BookingController(data);
             List<Tuple<int, int>> list = new List<Tuple<int, int>>();
             list.Add(new Tuple<int, int>(1, 3));
             list.Add(new Tuple<int, int>(3, 5));
@@ -84,9 +84,9 @@ namespace MotelBooking.Tests
         public async Task Book_Room_Request_Can_Be_Accepted_After_Decline_Size_3()
         {
             IHotelRepository repo = new HotelRepository(3);
-            IBookingDataAdapter da = new BookingDataAdapter(repo, new BookingProcessor(repo));
+            IBookingDataAdapter data = new BookingDataAdapter(repo, new BookingProcessor(repo));
 
-            BookingController controller = new BookingController(da);
+            BookingController controller = new BookingController(data);
             List<Tuple<int, int>> list = new List<Tuple<int, int>>();
             list.Add(new Tuple<int, int>(1, 3));
             list.Add(new Tuple<int, int>(0, 15));
@@ -111,10 +111,10 @@ namespace MotelBooking.Tests
         [TestMethod]
         public async Task Book_Room_Complex_Requests_Size_2()
         {
-            IHotelRepository repo = new HotelRepository(3);
-            IBookingDataAdapter da = new BookingDataAdapter(repo, new BookingProcessor(repo));
+            IHotelRepository repo = new HotelRepository(2);
+            IBookingDataAdapter data = new BookingDataAdapter(repo, new BookingProcessor(repo));
 
-            BookingController controller = new BookingController(da);
+            BookingController controller = new BookingController(data);
             List<Tuple<int, int, int>> list = new List<Tuple<int, int, int>>();
             list.Add(new Tuple<int, int, int>(1, 3, 201));
             list.Add(new Tuple<int, int, int>(0, 4, 201));

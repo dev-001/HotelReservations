@@ -64,7 +64,7 @@ namespace MotelBooking.Tests
                     await processor.BookFirstAvailableRoomAsync(new Reservation { StartDay = request.Item1, EndDay = request.Item2 });
                     Assert.IsTrue(true);
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
                     Assert.Fail();
                 }
@@ -150,7 +150,7 @@ namespace MotelBooking.Tests
         [TestMethod]
         public async Task Book_Room_Complex_Requests_Size_2()
         {
-            IHotelRepository repo = new HotelRepository(3);
+            IHotelRepository repo = new HotelRepository(2);
             IBookingProcessor processor = new BookingProcessor(repo);
 
             List<Tuple<int, int, bool>> list = new List<Tuple<int, int, bool>>();

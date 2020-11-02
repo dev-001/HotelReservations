@@ -20,7 +20,8 @@ namespace HotelReservations.API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddSingleton<IHotelRepository>(s => new HotelRepository(2));
+            int hotelSize = 2;
+            services.AddSingleton<IHotelRepository>(s => new HotelRepository(hotelSize));
             services.AddSingleton<IBookingDataAdapter, BookingDataAdapter>();
             services.AddTransient<IBookingProcessor, BookingProcessor>();
 
@@ -28,7 +29,7 @@ namespace HotelReservations.API
 
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Hotel Booking API", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Hotel Booking API - Hotel Size " + hotelSize, Version = "v1" });
             });
         }
 
