@@ -19,6 +19,9 @@ namespace HotelReservations.Data
 
         private void Initialize(int size)
         {
+            if (size > 1000)
+                throw new ArgumentException("Hotel size can't be over 1000 rooms");
+
             Hotel = new Hotel();
             Hotel.Size = size;
 
